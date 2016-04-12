@@ -22,6 +22,6 @@ class ExternalBillCallService {
     private Response getCallToEndpoint() {
         RESTClient client = new RESTClient(skyTestUrl)
         Response response = client.get()
-        return response
+        response
     }
 }
