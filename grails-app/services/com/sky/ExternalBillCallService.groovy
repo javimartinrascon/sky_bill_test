@@ -4,6 +4,7 @@
  */
 package com.sky
 
+import com.sky.utils.ConfigResolver
 import wslite.rest.RESTClient
 import wslite.rest.Response
 
@@ -11,7 +12,7 @@ class ExternalBillCallService {
 
     static transactional = false
 
-    String skyTestUrl = 'http://safe-plains-5453.herokuapp.com/bill.json'
+    private String skyTestUrl = ConfigResolver.config.sky.test.url
 
     Map getRequestBillJSON() {
         Response response = callToEndpoint

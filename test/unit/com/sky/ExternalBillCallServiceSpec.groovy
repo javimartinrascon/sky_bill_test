@@ -4,6 +4,7 @@
  */
 package com.sky
 
+import com.sky.utils.ConfigResolver
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -19,7 +20,10 @@ class ExternalBillCallServiceSpec extends Specification {
 
     @Unroll
     void "tests external response"() {
-
+        given:
+        GroovyMock(ConfigResolver) {
+            config.sky.test.url >> FAKE_URL
+        }
         when:
         service.metaClass.getCallToEndpoint() { -> return mockedResponse }
         def result = service.requestBillJSON
@@ -50,4 +54,5 @@ class ExternalBillCallServiceSpec extends Specification {
 
     static final JSON_TEXT = "{'mock': {'info': 'fake'}, 'total': '23.00', 'other': {'more': 'fake'}}"
     static final JSON_MAP = [mock: [info: 'fake'], total: 23.00, other: [more: 'fake']]
+    static final FAKE_URL = 'http://fake.url.for.test'
 }

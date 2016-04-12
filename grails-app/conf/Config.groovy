@@ -115,3 +115,5 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+sky.test.url = 'http://safe-plains-5453.herokuapp.com/bill.json'
