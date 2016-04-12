@@ -6,8 +6,10 @@ package sky_bill_test
 
 class BillController {
 
+    ExternalBillCallService externalBillCallService
+
     def show() {
-        def billJson = [ok: true]
+        Map billJson = externalBillCallService.requestBillJSON
         [model: billJson]
     }
 }
