@@ -2,7 +2,7 @@
  * Created by javier-martin
  * on 12/04/16 - 20:47.
  */
-package sky_bill_test
+package com.sky
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

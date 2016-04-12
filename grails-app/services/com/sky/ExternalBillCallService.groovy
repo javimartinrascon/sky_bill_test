@@ -2,7 +2,7 @@
  * Created by javier-martin
  * on 12/04/16 - 20:58.
  */
-package sky_bill_test
+package com.sky
 
 import wslite.rest.RESTClient
 import wslite.rest.Response
