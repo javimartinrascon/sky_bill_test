@@ -31,16 +31,28 @@
         <div class="row">
             <div class="col-xs-6">
                 <h1>
-                    <asset:image src="grails_logo.png" alt="Grails"/>
+                    Sky<small>logo</small>
                 </h1>
             </div>
             <div class="col-xs-6 text-right">
-                <h1>Sky Bill</h1>
+                <h1>Test Bill</h1>
             </div>
         </div>
 %{--"statement"--}%
         <div class="row">
             <div class="col-xs-5" style="padding-left: 0px">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4>Client</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Mr Bill Test</p>
+                        <p>10 Fake Test St.</p>
+                        <p>Test</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4" style="padding-left: 0px">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4>Statement</h4>
@@ -52,24 +64,26 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-5  col-xs-offset-2" style="padding-right: 0px">
+            <div class="col-xs-3" style="padding-right: 0px">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h4>Total</h4>
                         </div>
                         <div class="panel-body">
-                            <h1>${bill_total}</h1>
+                            <h1>&#163;${bill_total}</h1>
+                            <br/>
                         </div>
                     </div>
             </div>
         </div>
 %{--"subscriptions"--}%
+    <g:if test="${bill_package}">
         <div class="row">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h4>Subscriptions</h4>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th><h4>Name</h4></th>
@@ -82,24 +96,26 @@
                         <tr>
                             <td>${subscription.name}</td>
                             <td>${subscription.type}</td>
-                            <td>${subscription.cost}</td>
+                            <td>&#163;${subscription.cost}</td>
                         </tr>
                     </g:each>
                     <tr>
                         <td colspan="2" style="background-color: #f8efc0">Total</td>
-                        <td style="background-color: #f8efc0">${bill_package.total}</td>
+                        <td style="background-color: #f8efc0">&#163;${bill_package.total}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+    </g:if>
 %{--"Call Charges"--}%
+    <g:if test="${bill_callCharges}">
         <div class="row">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h4>Call Charges</h4>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th><h4>Called</h4></th>
@@ -112,24 +128,26 @@
                         <tr>
                             <td>${call.called}</td>
                             <td>${call.duration}</td>
-                            <td>${call.cost}</td>
+                            <td>&#163;${call.cost}</td>
                         </tr>
                     </g:each>
                     <tr>
                         <td colspan="2" style="background-color: #f8efc0">Total</td>
-                        <td style="background-color: #f8efc0">${bill_callCharges.total}</td>
+                        <td style="background-color: #f8efc0">&#163;${bill_callCharges.total}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+    </g:if>
 %{--"Sky Store"--}%
+    <g:if test="${bill_skyStore}">
         <div class="row">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h4>Sky Store</h4>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <th>Title</th>
                         <th>Type</th>
@@ -140,14 +158,14 @@
                         <tr>
                             <td>${rental.title}</td>
                             <td>Rental</td>
-                            <td>${rental.cost}</td>
+                            <td>&#163;${rental.cost}</td>
                         </tr>
                     </g:each>
                     <g:each in="${bill_skyStore.buyAndKeep}" var="buy">
                         <tr>
                             <td>${buy.title}</td>
                             <td>Buy And Keep</td>
-                            <td>${buy.cost}</td>
+                            <td>&#163;${buy.cost}</td>
                         </tr>
                     </g:each>
                         <tr>
@@ -158,7 +176,8 @@
                 </table>
             </div>
         </div>
-
+    </g:if>
+%{--"Additional"--}%
     <div class="row">
         <div class="col-xs-5" style="padding-left: 0px">
             <div class="panel panel-info">
@@ -166,34 +185,32 @@
                     <h4>Bank details</h4>
                 </div>
                 <div class="panel-body">
-                    <p>Your Name</p>
+                    <p>Name</p>
                     <p>Bank Name</p>
-                    <p>Account Number : --------</p>
-                    <p>IBAN : --------</p>
+                    <p>Account Number</p>
+                    <p>IBAN</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-7" style="padding-right: 0px">
-            <div class="span7">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4>Contact Details</h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" >
                         <p>
-                            Email : you@example.com <br><br>
-                            Mobile : -------- <br> <br>
+                            Email: change@me.com <br><br>
+                            Mobile: <br> <br>
                         </p>
                         <h4>Payment should be made by Bank Transfer</h4>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </g:if>
 <g:else>
-        <h2>Sorry! Technical difficulties!</h2>
-        Please try again later.
+        <h2 class="text-center">Sorry! Technical difficulties!</h2>
+        <h3 class="text-center">Please try again later.</h3>
 </g:else>
     </div>
 

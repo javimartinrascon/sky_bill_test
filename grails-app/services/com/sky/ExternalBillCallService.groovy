@@ -16,12 +16,17 @@ class ExternalBillCallService {
 
     Map getRequestBillJSON() {
         Response response = callToEndpoint
-        response.json
+        response?.json
     }
 
     private Response getCallToEndpoint() {
         RESTClient client = new RESTClient(skyTestUrl)
-        Response response = client.get()
+        Response response
+        try {
+            response = client.get()
+        } catch (Exception e) {
+            log.error("Error getting info from endpoint: ${skyTestUrl}")
+        }
         response
     }
 }
