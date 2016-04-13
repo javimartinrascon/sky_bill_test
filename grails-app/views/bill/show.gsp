@@ -59,8 +59,8 @@
                     </div>
                     <div class="panel-body">
                         <p>Generated: ${bill_statement.generated}</p>
-                        <p>Due: ${bill_statement.due}</p>
                         <p>Period: ${bill_statement.period.from} - ${bill_statement.period.to}</p>
+                        <p>Payment Due: ${bill_statement.due}</p>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                         </tr>
                     </g:each>
                     <tr>
-                        <td colspan="2" style="background-color: #f8efc0">Total</td>
+                        <td colspan="2" style="background-color: #f8efc0">Total Subscriptions</td>
                         <td style="background-color: #f8efc0">&#163;${bill_package.total}</td>
                     </tr>
                     </tbody>
@@ -132,7 +132,7 @@
                         </tr>
                     </g:each>
                     <tr>
-                        <td colspan="2" style="background-color: #f8efc0">Total</td>
+                        <td colspan="2" style="background-color: #f8efc0">Total Call Charges</td>
                         <td style="background-color: #f8efc0">&#163;${bill_callCharges.total}</td>
                     </tr>
                     </tbody>
@@ -169,7 +169,7 @@
                         </tr>
                     </g:each>
                         <tr>
-                            <td colspan="2" style="background-color: #f8efc0">Total</td>
+                            <td colspan="2" style="background-color: #f8efc0">Total Sky Store</td>
                             <td style="background-color: #f8efc0">${bill_skyStore.total}</td>
                         </tr>
                     </tbody>
