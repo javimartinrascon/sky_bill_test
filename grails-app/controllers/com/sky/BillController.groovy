@@ -8,6 +8,9 @@ class BillController {
 
     ExternalBillCallService externalBillCallService
 
+    def index() {
+    }
+
     def show() {
         Map billJson = externalBillCallService.requestBillJSON
         [model: billJson]

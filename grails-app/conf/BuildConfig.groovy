@@ -53,6 +53,11 @@ grails.project.dependency.resolution = {
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
 
         runtime 'com.github.groovy-wslite:groovy-wslite:0.8.0'
+
+        // Geb functional testing
+        test "org.gebish:geb-spock:0.13.1"
+        test "org.seleniumhq.selenium:selenium-support:2.52.0"
+        test "org.seleniumhq.selenium:selenium-firefox-driver:2.52.0"
     }
 
     plugins {
@@ -76,5 +81,6 @@ grails.project.dependency.resolution = {
         //compile ":less-asset-pipeline:1.10.0"
         //compile ":coffee-asset-pipeline:1.8.0"
         //compile ":handlebars-asset-pipeline:1.3.0.3"
+        test ":geb:0.13.1"
     }
 }
