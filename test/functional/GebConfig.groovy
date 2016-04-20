@@ -6,5 +6,9 @@ import org.openqa.selenium.firefox.FirefoxDriver
  */
 
 driver = {
-    new FirefoxDriver()
+    def driverInstance = new FirefoxDriver()
+    driverInstance
 }
+
+baseNavigatorWaiting = true
+atCheckWaiting = true

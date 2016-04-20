@@ -7,9 +7,11 @@ import geb.spock.GebReportingSpec
 import pages.IndexBillPage
 import pages.ShowBillPage
 
-class BillShowSpec extends GebReportingSpec {
+class BillIndexSpec extends GebReportingSpec {
 
-    void "test index redirect"() {
+
+
+    void "test index redirect to show"() {
         when:
         to IndexBillPage
 
@@ -18,7 +20,6 @@ class BillShowSpec extends GebReportingSpec {
 
         then:
         at ShowBillPage
-
     }
 
 }
