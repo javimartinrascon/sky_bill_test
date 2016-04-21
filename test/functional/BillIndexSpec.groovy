@@ -9,8 +9,6 @@ import pages.ShowBillPage
 
 class BillIndexSpec extends GebReportingSpec {
 
-
-
     void "test index redirect to show"() {
         when:
         to IndexBillPage

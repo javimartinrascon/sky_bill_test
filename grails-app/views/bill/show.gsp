@@ -30,9 +30,9 @@
 %{--"logo and header"--}%
         <div class="row">
             <div class="col-xs-6">
-                <h1>
-                    Sky<small>logo</small>
-                </h1>
+                %{--<h1>--}%
+                    <div id="skyLogo"> %{--Sky<small>logo</small>--}%<asset:image src="sky/sky.png"/></div>
+                %{--</h1>--}%
             </div>
             <div class="col-xs-6 text-right">
                 <h1>Test Bill</h1>
